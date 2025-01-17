@@ -29,6 +29,10 @@ var myCookie = {
 };
 document.cookie = JSON.stringify(myCookie);
 alert(document.cookie);
+
+var myCookie2 = JSON.parse(document.cookie);
+alert(myCookie2.totalTime);
+
 // DOM Elements
 let timerEl = document.getElementById("timer-el");
 let totalTimeEl = document.getElementById("total-time-el");
