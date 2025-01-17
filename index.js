@@ -21,6 +21,14 @@ function getCookie(name) {
     return null;
 }
 
+var myCookie = {
+    name: "totaltime",
+    value: 0,
+    days: 365,
+    totalTime: 100
+};
+document.cookie = JSON.stringify(myCookie);
+alert(document.cookie);
 // DOM Elements
 let timerEl = document.getElementById("timer-el");
 let totalTimeEl = document.getElementById("total-time-el");
