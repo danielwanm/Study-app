@@ -33,6 +33,8 @@ let titleEl = document.getElementById("title");
 let isrunning = false;
 let timer = 0;
 let totalStudiedTime = getCookie("totalTime");
+document.getElementById("total-time-el").innerText = formatTime(totalStudiedTime);
+
 
 
 // Timer Functions
