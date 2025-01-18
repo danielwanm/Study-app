@@ -32,7 +32,7 @@ let titleEl = document.getElementById("title");
 // Global State
 let isrunning = false;
 let timer = 0;
-let totalStudiedTime = getCookie("totaltime") || 0;
+let totalStudiedTime = getCookie("totalTime");
 
 
 // Timer Functions
