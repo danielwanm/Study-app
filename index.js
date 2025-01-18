@@ -1,11 +1,15 @@
-function setCookie(name, value, days) {
-    const date = new Date();
-    date.setTime(date.getTime() + (days*24*60*60*1000));
-    let cookieString = name + "=" + value + ";" + "expires=" + date.toUTCString() + ";path=/";
-    document.cookie = cookieString;
-    console.log("Setting cookie:", cookieString);
+var myCookie = {
+    totalTime: 0,
+    // You can add more properties here if needed
+};
+function setCookie(myCookie) {
+// Create individual cookies for each property in myCookie
+for (let key in myCookie) {
+    document.cookie = `${key}=${myCookie[key]};path=/;expires=` + new Date(2026, 0, 1).toUTCString();
 }
- 
+}
+
+// To read the cookies later:
 function getCookie(name) {
     console.log("All cookies:", document.cookie);
     const cookies = document.cookie.split(";");
@@ -17,21 +21,9 @@ function getCookie(name) {
             return value;
         }
     }
-    console.log("Cookie not found:", name);
     return null;
 }
 
-var myCookie = {
-    name: "totaltime",
-    value: 0,
-    days: 365,
-    totalTime: 100
-};
-document.cookie = JSON.stringify(myCookie);
-alert(document.cookie);
-
-var myCookie2 = JSON.parse(document.cookie);
-alert(myCookie2.totalTime);
 
 // DOM Elements
 let timerEl = document.getElementById("timer-el");
@@ -83,7 +75,8 @@ function doneTimer() {
     totalStudiedTime += timer;
     console.log(totalStudiedTime);
     totalTimeEl.innerText = formatTime(totalStudiedTime);
-    setCookie("totaltime", totalStudiedTime, 365);
+    myCookie.totalTime = totalStudiedTime;
+    setCookie(myCookie);
 
     
     // Reset current timer
